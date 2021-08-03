@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} -Registration {% endblock head_title %}
+
+{% block content %}
+
+<div class="total-body" style="text-align:center">
+    <h2>Welcome to MGExchange {{request.user}}</h2>
+    <br>
+    <p><strong>btc : {{customer.btc_wallet}}  dollar:{{customer.dollar_wallet}}</strong></p>
+    <p><strong>Profit:{{customer.profit}}</strong></p>
+
+    <div class="card-body">
+        <h5 class="card-title">A new way to swap yor bitcoin</h5>
+        <br><br>
+        <h3>Order To Buy Waiting List</h3>
+        <br>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Order Date</th>
+                </tr>
+            </thead>
+            {% for order in order_buy %}
+            <tbody>
+                <tr>
+                    <td><p>#</p></td>
+                    <td><p>{{order.price}}</p></td>
+                    <td><p>{{order.quantity}}</p></td>
+                    <td><p>{{order.publish_on}}</p></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<div style="text-align:center">
+    <br><br>
+    <h3>Order To Sell Waiting List</h3>
+    <br>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Order Date</th>
+            </tr>
+        </thead>
+        {% for order in order_sell %}
+        <tbody>
+            <tr>
+                <td><p>#</p></td>
+                <td><p>{{order.price}}</p></td>
+                <td><p>{{order.quantity}}</p></td>
+                <td><p>{{order.publish_on}}</p></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock content %}

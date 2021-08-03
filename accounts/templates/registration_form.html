@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} -Registration {% endblock head_title %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-4">
+        <div class="col-6 text-center">
+            <h2>MGExchange</h2>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <br>
+                <input type="submit" class="btn btn-info" value="Register Now">
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

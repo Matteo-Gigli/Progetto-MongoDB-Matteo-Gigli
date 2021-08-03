@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} - Logout {% endblock head_title %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="/css/master.css">
+        <meta charset="utf-8">
+        <title>Logout !</title>
+    </head>
+    <body style="text-align:center;">
+        <p>Logout Complete!</p>
+        <a href="{% url 'login' %}">Login</a>
+    </body>
+</html>
+{% endblock content %}

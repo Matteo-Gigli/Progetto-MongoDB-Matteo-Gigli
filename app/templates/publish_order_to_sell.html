@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block head_title %}{{ block.super }} -Publish Order To Sell {% endblock head_title %}
+
+{% block content %}
+
+<div style="text-align:center">
+    {% if user.is_authenticated %}
+        <h1> Publish Your Order To Sell !</h1>
+        <form  method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-info" value="Publish Now">
+            {% endif %}
+        </form>
+</div>
+{% endblock content %}
